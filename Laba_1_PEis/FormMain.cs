@@ -22,5 +22,23 @@ namespace Laba_1_PEis
             var form = new chartOfAccounts();
             form.ShowDialog();
         }
+
+        private void материалыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new FormProduct();
+            form.ShowDialog();
+        }
+
+        private void покупательToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new FormCustomer();
+            form.ShowDialog();
+        }
+
+        private void заявкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new FormApplications();
+            form.ShowDialog();
+        }
     }
 }

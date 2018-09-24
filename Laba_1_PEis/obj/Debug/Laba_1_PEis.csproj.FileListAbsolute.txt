@@ -5,7 +5,6 @@ c:\users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PE
 c:\users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\bin\Debug\EntityFramework.SqlServer.dll
 c:\users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\bin\Debug\EntityFramework.xml
 c:\users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\bin\Debug\EntityFramework.SqlServer.xml
-c:\users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.csprojResolveAssemblyReference.cache
 c:\users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.Properties.Resources.resources
 c:\users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.csproj.GenerateResource.cache
 c:\users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.csproj.CoreCompileInputs.cache
@@ -19,3 +18,7 @@ c:\users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PE
 c:\users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\bin\Debug\System.Data.SQLite.dll.config
 c:\users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.chartOfAccounts.resources
 c:\users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.FormMain.resources
+C:\Users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.FormProduct.resources
+C:\Users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.FormCustomer.resources
+C:\Users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.csprojResolveAssemblyReference.cache
+C:\Users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.FormApplications.resources
