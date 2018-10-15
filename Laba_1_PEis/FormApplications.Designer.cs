@@ -69,6 +69,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(627, 389);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellContentClick);
             // 
             // comboBoxCustomer
@@ -101,6 +102,7 @@
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(455, 505);
             this.dataGridView2.TabIndex = 3;
+            this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_CellContentClick);
             // 
             // comboBoxProduct
@@ -233,6 +235,7 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowTemplate.Height = 24;
+            this.dataGridView3.AllowUserToDeleteRows = false;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView3.Size = new System.Drawing.Size(627, 212);
             this.dataGridView3.TabIndex = 14;
@@ -324,6 +327,8 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "FormApplications";
             this.Text = "Заявки";
+            this.MaximizeBox = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Load += new System.EventHandler(this.FormApplications_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

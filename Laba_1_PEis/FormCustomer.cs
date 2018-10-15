@@ -26,13 +26,11 @@ namespace Laba_1_PEis
 
         private void FormCustomer_Load(object sender, System.EventArgs e)
         {
-            string ConnectionString = @"Data Source=" + ClassSupport.sPath +
-           ";New=False;Version=3";
             String selectCommand = "Select * from Customer";
-            selectTable(ConnectionString, selectCommand);
+            selectTable(selectCommand);
         }
 
-        public void selectTable(string ConnectionString, String selectCommand)
+        public void selectTable(String selectCommand)
         {
 
             dataGridView1.DataSource = ClassSupport.Connections( selectCommand);
@@ -60,12 +58,12 @@ namespace Laba_1_PEis
             ClassSupport.ExecuteQuery(txtSQLQuery);
             //обновление dataGridView1
             selectCommand = "select * from Customer";
-            refreshForm(ClassSupport.ConnectionString, selectCommand);
+            refreshForm(selectCommand);
 
         }
-        public void refreshForm(string ConnectionString, String selectCommand)
+        public void refreshForm(String selectCommand)
         {
-            selectTable(ConnectionString, selectCommand);
+            selectTable(selectCommand);
             dataGridView1.Update();
             dataGridView1.Refresh();
             textBoxName.Text = "";
@@ -86,12 +84,10 @@ namespace Laba_1_PEis
 
                 string valueId = dataGridView1[0, CurrentRow].Value.ToString();
                 String selectCommand = "delete from Customer where Customer_id=" + valueId;
-                string ConnectionString = @"Data Source=" + ClassSupport.sPath +
-               ";New=False;Version=3";
                 ClassSupport.changeValue(selectCommand);
                 //обновление dataGridView1
                 selectCommand = "select * from Customer";
-                refreshForm(ConnectionString, selectCommand);
+                refreshForm(selectCommand);
             }
         }
 
@@ -118,11 +114,10 @@ namespace Laba_1_PEis
 
             //обновление Name
             String selectCommand = "update Customer set Name='" + changeName + "' where Customer_id = " + valueId;
-            string ConnectionString = @"Data Source=" + ClassSupport.sPath + ";New=False;Version=3";
             ClassSupport.changeValue(selectCommand);
             //обновление dataGridView1
             selectCommand = "select * from Customer";
-            refreshForm(ConnectionString, selectCommand);
+            refreshForm(selectCommand);
 
         }
 

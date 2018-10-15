@@ -40,5 +40,27 @@ namespace Laba_1_PEis
             var form = new FormApplications();
             form.ShowDialog();
         }
+
+        private void журналПроводокToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void продажаПоЗаявкеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void журналПРоводокToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            var form = new JournalEntries();
+            form.ShowDialog();
+        }
+
+        private void продажаПоЗаявкеToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            var form = new FormJournals();
+            form.ShowDialog();
+        }
     }
 }

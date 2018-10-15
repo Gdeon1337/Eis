@@ -36,6 +36,7 @@ namespace Laba_1_PEis
         {
             dataGridView1.DataSource = ClassSupport.Connections( selectCommand);
             dataGridView1.DataMember = ClassSupport.Connections(selectCommand).Tables[0].ToString();
+            dataGridView1.Columns[3].Visible = false;
         }
 
         private void Add_Click(object sender, EventArgs e)
@@ -45,20 +46,23 @@ namespace Laba_1_PEis
                 MessageBox.Show("Заполните ФИО", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            if (string.IsNullOrEmpty(textBoxPriceZakyp.Text))
+            {
+                MessageBox.Show("Заполните закупочную цену", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+           
             if (string.IsNullOrEmpty(textBoxPrice.Text))
             {
                 MessageBox.Show("Заполните цену", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            string ConnectionString = @"Data Source=" + ClassSupport.sPath + ";New=False;Version=3";
             String selectCommand = "select MAX(Product_id) from Product";
             object maxValue = ClassSupport.selectValue( selectCommand);
             if (Convert.ToString(maxValue) == "")
                 maxValue = 0;
-            string txtSQLQuery = "insert into Product (Product_id, Name,Price) values (" +
-           (Convert.ToInt32(maxValue) + 1) + ", '" + textBoxName.Text + "', '" + Convert.ToDouble(textBoxPrice.Text) + "')";
+            string txtSQLQuery = "insert into Product (Product_id, Name,Price,PriceZakyp) values (" +
+           (Convert.ToInt32(maxValue) + 1) + ", '" + textBoxName.Text + "', '" + Convert.ToDouble(textBoxPrice.Text)+ "', '" + Convert.ToDouble(textBoxPriceZakyp.Text) + "')";
             ClassSupport.ExecuteQuery(txtSQLQuery);
             //обновление dataGridView1
             selectCommand = "select * from Product";
@@ -72,6 +76,7 @@ namespace Laba_1_PEis
             dataGridView1.Refresh();
             textBoxName.Text = "";
             textBoxPrice.Text = "";
+            textBoxPriceZakyp.Text = "";
         }
 
         
@@ -88,10 +93,11 @@ namespace Laba_1_PEis
 
                 string valueId = dataGridView1[0, CurrentRow].Value.ToString();
                 String selectCommand = "delete from Product where Product_id=" + valueId;
-                string ConnectionString = @"Data Source=" + ClassSupport.sPath +
-               ";New=False;Version=3";
                 ClassSupport.changeValue(selectCommand);
-                //обновление dataGridView1
+
+                selectCommand = "delete from Application_Product where Product_id=" + valueId;
+                ClassSupport.changeValue(selectCommand);
+
                 selectCommand = "select * from Product";
                 refreshForm(selectCommand);
             }
@@ -158,16 +164,22 @@ namespace Laba_1_PEis
                 MessageBox.Show("Заполните цену", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-         
-            
+            if (string.IsNullOrEmpty(textBoxPriceZakyp.Text))
+            {
+                MessageBox.Show("Заполните закупочную цену", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
 
             int CurrentRow = dataGridView1.SelectedCells[0].RowIndex;
             //получить значение Name выбранной строки
             string valueId = dataGridView1[0, CurrentRow].Value.ToString();
             string changeName = textBoxName.Text;
             string changePrice = Convert.ToDouble(textBoxPrice.Text).ToString();
+            string changePriceZakyp = Convert.ToDouble(textBoxPriceZakyp.Text).ToString();
             //обновление Name
-            String selectCommand = "update Product set Name='" + changeName + "' ,Price='"+ changePrice + "' where Product_id = " + valueId;
+            String selectCommand = "update Product set Name='" + changeName + "' ,Price='"+ changePrice + "' ,PriceZakyp='" + changePriceZakyp + "' where Product_id = " + valueId;
              string ConnectionString = @"Data Source=" + ClassSupport.sPath +";New=False;Version=3";
             ClassSupport.changeValue(selectCommand);
             //обновление dataGridView1
@@ -183,8 +195,10 @@ namespace Laba_1_PEis
             //получить значение Name выбранной строки
             string nameId = dataGridView1[1, CurrentRow].Value.ToString();
             string price = dataGridView1[2, CurrentRow].Value.ToString();
+            string priceZakyp = dataGridView1[4, CurrentRow].Value.ToString();
             textBoxName.Text = nameId;
             textBoxPrice.Text = price;
+            textBoxPriceZakyp.Text = priceZakyp;
         }
 
        

@@ -21,7 +21,6 @@ namespace Laba_1_PEis
         private class product {
             public int Product_id { set; get; }
             public int count { set; get; }
-         //   public int Sum { set; get; }
         }
         List<product> Products=new List<product>();
         int CurrentRowBase;
@@ -124,6 +123,7 @@ namespace Laba_1_PEis
             ClassSupport.ExecuteQuery(txtSQLQuery);
 
 
+
            
 
             for (int i = 0; i < Products.Count; i++) {
@@ -179,17 +179,19 @@ namespace Laba_1_PEis
             int CurrentRow = dataGridView1.SelectedCells[0].RowIndex;
             //получить значение Name выбранной строки
             string valueId = dataGridView1[0, CurrentRow].Value.ToString();
-    
+
 
             //обновление Name
             String selectCommand = "update Application set Customer_id='" + Convert.ToInt32(comboBoxCustomer.SelectedValue) + "' where Application_id = " + valueId;
-          
-            ClassSupport.changeValue( selectCommand);
+
+            ClassSupport.changeValue(selectCommand);
             selectCommand = "SELECT Product_id  FROM Application_Product where Application_id=" + valueId;
-            if (Products.Find(rec => rec.Product_id == Convert.ToInt32(ClassSupport.selectValue(selectCommand))) != null) {
-                MessageBox.Show("Такой товар уже есть в бд изменяйте в другой форме", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            if (ClassSupport.selectValue(selectCommand).ToString()!="") { 
+                if (Products.Find(rec => rec.Product_id == Convert.ToInt32(ClassSupport.selectValue(selectCommand))) != null) {
+                    MessageBox.Show("Такой товар уже есть в бд изменяйте в другой форме", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+             }
 
             for (int i = 0; i < Products.Count; i++)
             {
@@ -322,14 +324,18 @@ namespace Laba_1_PEis
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int CurrentRow = dataGridView3.SelectedCells[0].RowIndex;
-            string valueId = dataGridView3[0, CurrentRow].Value.ToString();
-            string selectCommand = "Update  Application_Product set Count="+ Convert.ToInt32(textBox1.Text) +" where Product_id=" + valueId;
+            if (dataGridView3.SelectedRows.Count == 1)
+            {
+                int CurrentRow = dataGridView3.SelectedCells[0].RowIndex;
+                string valueId = dataGridView3[0, CurrentRow].Value.ToString();
+                string selectCommand = "Update  Application_Product set Count=" + Convert.ToInt32(textBox1.Text) + " where Product_id=" + valueId;
 
-            ClassSupport.changeValue(selectCommand);
+                ClassSupport.changeValue(selectCommand);
 
-            selectCommand = "Select Product_id,Count from Application_Product where Application_id=" + CurrentRowBase;
-            UpdateDatagridProductBD(ClassSupport.Connections(selectCommand).Tables[0]);
+                selectCommand = "Select Product_id,Count from Application_Product where Application_id=" + CurrentRowBase;
+                UpdateDatagridProductBD(ClassSupport.Connections(selectCommand).Tables[0]);
+            }
         }
+
     }
 }

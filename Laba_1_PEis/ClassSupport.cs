@@ -44,6 +44,23 @@ namespace Laba_1_PEis
             return value;
         }
 
+        public static Dictionary<int, int> selectValueList(String selectCommand)
+        {
+            SQLiteConnection connect = new
+           SQLiteConnection(ConnectionString);
+            connect.Open();
+            SQLiteCommand command = new SQLiteCommand(selectCommand, connect);
+            SQLiteDataReader reader = command.ExecuteReader();
+            // List<object> value=new List<object>();
+            Dictionary<int, int> value = new Dictionary<int, int>();
+            while (reader.Read())
+            {
+                value.Add(Convert.ToInt32(reader[0]), Convert.ToInt32(reader[1]));
+            }
+            connect.Close();
+            return value;
+        }
+
         public static void changeValue( String selectCommand)
         {
 

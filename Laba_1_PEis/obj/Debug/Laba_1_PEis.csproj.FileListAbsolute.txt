@@ -22,3 +22,7 @@ C:\Users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PE
 C:\Users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.FormCustomer.resources
 C:\Users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.csprojResolveAssemblyReference.cache
 C:\Users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.FormApplications.resources
+C:\Users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.JournalEntries.resources
+C:\Users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.FormJournal.resources
+C:\Users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.FormJournalRed.resources
+C:\Users\gdeon\onedrive\документы\visual studio 2017\Projects\Laba_1_PEis\Laba_1_PEis\obj\Debug\Laba_1_PEis.FormJournals.resources
