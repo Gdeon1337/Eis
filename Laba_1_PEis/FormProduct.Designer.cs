@@ -38,14 +38,15 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label3 = new System.Windows.Forms.Label();
             this.textBoxPriceZakyp = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
@@ -55,7 +56,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(654, 346);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellContentClick);
             // 
             // redaction
@@ -136,6 +136,16 @@
             this.toolTip1.StripAmpersands = true;
             this.toolTip1.ToolTipTitle = "Подсказка";
             // 
+            // textBoxPriceZakyp
+            // 
+            this.textBoxPriceZakyp.Location = new System.Drawing.Point(817, 112);
+            this.textBoxPriceZakyp.MaxLength = 15;
+            this.textBoxPriceZakyp.Name = "textBoxPriceZakyp";
+            this.textBoxPriceZakyp.Size = new System.Drawing.Size(221, 22);
+            this.textBoxPriceZakyp.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.textBoxPriceZakyp, "Только числа, в рублях");
+            this.textBoxPriceZakyp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPrice_KeyPress);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -144,16 +154,6 @@
             this.label3.Size = new System.Drawing.Size(123, 17);
             this.label3.TabIndex = 8;
             this.label3.Text = "Закупочная цена";
-            // 
-            // textBoxPriceZakyp
-            // 
-            this.textBoxPriceZakyp.Location = new System.Drawing.Point(817, 112);
-            this.textBoxPriceZakyp.MaxLength = 15;
-            this.textBoxPriceZakyp.Name = "textBoxPriceZakyp";
-            this.textBoxPriceZakyp.Size = new System.Drawing.Size(221, 22);
-            this.textBoxPriceZakyp.TabIndex = 9;
-            this.textBoxPriceZakyp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPrice_KeyPress);
-            this.toolTip1.SetToolTip(this.textBoxPriceZakyp, "Только числа, в рублях");
             // 
             // FormProduct
             // 
@@ -167,11 +167,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.del);
-            this.MaximizeBox = false;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Controls.Add(this.Add);
             this.Controls.Add(this.redaction);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormProduct";
             this.Text = "Товар";
             this.Load += new System.EventHandler(this.FormProduct_Load);

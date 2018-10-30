@@ -195,7 +195,7 @@ namespace Laba_1_PEis
             //получить значение Name выбранной строки
             string nameId = dataGridView1[1, CurrentRow].Value.ToString();
             string price = dataGridView1[2, CurrentRow].Value.ToString();
-            string priceZakyp = dataGridView1[4, CurrentRow].Value.ToString();
+            string priceZakyp = dataGridView1[3, CurrentRow].Value.ToString();
             textBoxName.Text = nameId;
             textBoxPrice.Text = price;
             textBoxPriceZakyp.Text = priceZakyp;

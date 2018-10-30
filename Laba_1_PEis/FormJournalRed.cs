@@ -29,6 +29,7 @@ namespace Laba_1_PEis
             selectCommand = "Select Data from Journal where Journal_id = " + id;
 
             dateTimePicker1.Value = DateTime.Parse(ClassSupport.selectValue(selectCommand).ToString());
+            dateTimePicker1.MinDate = DateTime.Parse(ClassSupport.selectValue(selectCommand).ToString());
         }
 
         public void selectTable(String selectCommand)
@@ -43,6 +44,9 @@ namespace Laba_1_PEis
             ClassSupport.changeValue(selectCommand);
             //обновление dataGridView1
             selectCommand = "update Transactions set Data='" + dateTimePicker1.Text + "' where Journal_id = " + id;
+            ClassSupport.changeValue(selectCommand);
+
+            selectCommand = "update Journal_Product set Data='" + dateTimePicker1.Text + "' where Journal_id = " + id;
             ClassSupport.changeValue(selectCommand);
 
             selectCommand = "Select * from Journal where Journal_id=" + id;

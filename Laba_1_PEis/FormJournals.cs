@@ -22,8 +22,10 @@ namespace Laba_1_PEis
             
         }
         private void LoadData() {
+            dataGridView1.CurrentCell = null;
             String selectCommand = "Select * from Journal";
             selectTable(selectCommand);
+            dataGridView2.Enabled=false;
         }
 
         public void selectTable(String selectCommand)
@@ -36,6 +38,7 @@ namespace Laba_1_PEis
         {
             dataGridView2.DataSource = ClassSupport.Connections(selectCommand);
             dataGridView2.DataMember = ClassSupport.Connections(selectCommand).Tables[0].ToString();
+            dataGridView2.CurrentCell = null;
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -68,6 +71,20 @@ namespace Laba_1_PEis
             string selectCommand = "Select * from Transactions where Journal_id=" + Convert.ToInt32(valueId);
             UpdateDatagridTransactions(selectCommand);
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                string del = "delete from Journal where Journal_id=" + Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                ClassSupport.changeValue(del);
+                del = "delete from Transactions where Journal_id=" + Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                ClassSupport.changeValue(del);
+                del  = "update Journal_Product set Journal_id = -1 where Journal_id="+Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
+                ClassSupport.changeValue(del);
+                LoadData();
+            }
         }
     }
 }

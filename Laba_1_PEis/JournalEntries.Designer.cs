@@ -35,12 +35,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.Add = new System.Windows.Forms.Button();
-            this.Del = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxCustom = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,23 +107,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 7;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(435, 34);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Номер операции";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(560, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 22);
-            this.textBox1.TabIndex = 9;
-            // 
             // Add
             // 
             this.Add.Location = new System.Drawing.Point(446, 132);
@@ -135,16 +116,6 @@
             this.Add.Text = "Ввод новой записи";
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
-            // 
-            // Del
-            // 
-            this.Del.Location = new System.Drawing.Point(625, 132);
-            this.Del.Name = "Del";
-            this.Del.Size = new System.Drawing.Size(155, 27);
-            this.Del.TabIndex = 11;
-            this.Del.Text = "Очистить";
-            this.Del.UseVisualStyleBackColor = true;
-            this.Del.Click += new System.EventHandler(this.Del_Click);
             // 
             // label5
             // 
@@ -165,17 +136,25 @@
             this.comboBoxCustom.Size = new System.Drawing.Size(200, 24);
             this.comboBoxCustom.TabIndex = 14;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(619, 132);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(152, 27);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Удалить";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // JournalEntries
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(986, 585);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBoxCustom);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.Del);
             this.Controls.Add(this.Add);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label3);
@@ -202,11 +181,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button Add;
-        private System.Windows.Forms.Button Del;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxCustom;
+        private System.Windows.Forms.Button button1;
     }
 }

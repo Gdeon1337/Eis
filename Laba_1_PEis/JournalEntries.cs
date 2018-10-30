@@ -93,11 +93,15 @@ namespace Laba_1_PEis
             if (Convert.ToString(maxValue) == "")
                 maxValue = 0;
             string txtSQLQuery = "insert into Transactions (Transactions_id, Debit_count, Credit_count, Count,Price, Data, Subcount_debet, Subcount_credit) values ('" +
-           (Convert.ToInt32(maxValue) + 1) + "', '" + "60" + "', '" + "10"+"', '" + textBoxCount.Text + "', '" + (Convert.ToInt32(textBoxCount.Text)*price)+ "', '"+ dateTimePicker1.Text + "', '" + Convert.ToInt32(comboBoxCustom.SelectedValue) + "', '" + Convert.ToInt32(comboBoxProduct.SelectedValue) + "')";
+           (Convert.ToInt32(maxValue) + 1) + "', '" + "10" + "', '" + "60"+"', '" + textBoxCount.Text + "', '" + (Convert.ToInt32(textBoxCount.Text)*price)+ "', '"+ dateTimePicker1.Text + "', '" + Convert.ToInt32(comboBoxProduct.SelectedValue) + "', '" + Convert.ToInt32(comboBoxCustom.SelectedValue) + "')";
             ClassSupport.ExecuteQuery(txtSQLQuery);
 
-            selectCommand = "update Product set Product_Count='" + Convert.ToInt64(textBoxCount.Text) + "' where Product_id = " + comboBoxProduct.SelectedValue;
-            ClassSupport.changeValue(selectCommand);
+            selectCommand = "select MAX(id) from Journal_Product";
+            maxValue = ClassSupport.selectValue(selectCommand);
+            if (Convert.ToString(maxValue) == "")
+                maxValue = 0;
+            txtSQLQuery = "insert into Journal_Product (Product_id,Journal_id,Sum,Count,Data,day,Month,God,id) values ('" + comboBoxProduct.SelectedValue + "', '" + "-1" + "', '" + (Convert.ToInt32(textBoxCount.Text) * price) + "', '" + Convert.ToInt32(textBoxCount.Text) + "', '" + dateTimePicker1.Text + "', '" + dateTimePicker1.Value.Day + "', '" + dateTimePicker1.Value.Month + "', '" + dateTimePicker1.Value.Year + "','"+ (Convert.ToInt32(maxValue) + 1) + "')";
+            ClassSupport.ExecuteQuery(txtSQLQuery);
 
             selectCommand = "select * from Transactions";
             refreshForm(selectCommand);
@@ -106,6 +110,18 @@ namespace Laba_1_PEis
         private void Del_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                string add = "delete from Transactions where Transactions_id=" + Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value) + " And Journal_id is NULL";
+                ClassSupport.changeValue(add);
+                String selectCommand = "Select * from Transactions";
+                selectTable(selectCommand);
+
+            }
         }
     }
 }
