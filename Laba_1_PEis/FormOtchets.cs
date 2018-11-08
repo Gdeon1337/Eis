@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,9 @@ namespace Laba_1_PEis
         public FormOtchets()
         {
             InitializeComponent();
+            ListOtchet dataSource = ClassSupport.list_load();
+            ReportDataSource source = new ReportDataSource("DataSet1", dataSource);
+            reportViewer1.LocalReport.DataSources.Add(source);
         }
     }
 }

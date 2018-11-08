@@ -62,5 +62,11 @@ namespace Laba_1_PEis
             var form = new FormJournals();
             form.ShowDialog();
         }
+
+        private void отчёт1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new FormOtchets();
+            form.ShowDialog();
+        }
     }
 }

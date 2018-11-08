@@ -33,6 +33,7 @@
             // 
             // reportViewer1
             // 
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Report1.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "ReportViewer";
             this.reportViewer1.Size = new System.Drawing.Size(396, 246);
@@ -49,8 +50,7 @@
 
         }
 
-        #endregion
-
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
+    #endregion
 }

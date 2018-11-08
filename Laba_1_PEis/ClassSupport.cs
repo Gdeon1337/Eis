@@ -19,7 +19,6 @@ namespace Laba_1_PEis
         public class Product_count
         {
             public int Material_id { set; get; }
-            public int Sum { set; get; }
             public int Count { set; get; }
             public string Date { set; get; }
             public int Day { set; get; }
@@ -36,6 +35,18 @@ namespace Laba_1_PEis
             sql_cmd.CommandText = txtQuery;
             sql_cmd.ExecuteNonQuery();
             sql_con.Close();
+        }
+
+        public static ListOtchet list_load()
+        {
+            ListOtchet list = new ListOtchet
+            {
+                data = ClassSupport.selectValueOthet("Select Data from Transactions where Journal_id<>-1"),
+                number = ClassSupport.selectValueOthet("Select Subcount_credit from Transactions where Journal_id<>-1"),
+                summ = ClassSupport.selectValueOthet("Select Price from Transactions where Journal_id <> -1 AND Debit_count='62' AND Credit_count='91'")
+
+            };
+            return list;
         }
 
         public static object selectValue( String selectCommand)
@@ -72,17 +83,17 @@ namespace Laba_1_PEis
             return value;
         }
 
-        public static List<object> selectValueOthet(String selectCommand)
+        public static List<string> selectValueOthet(String selectCommand)
         {
             SQLiteConnection connect = new
            SQLiteConnection(ConnectionString);
             connect.Open();
             SQLiteCommand command = new SQLiteCommand(selectCommand, connect);
             SQLiteDataReader reader = command.ExecuteReader();
-            List<object> value = new List<object>();
+            List<string> value = new List<string>();
             while (reader.Read())
             {
-                value.Add(reader[0]);
+                value.Add(reader[0].ToString());
             }
             connect.Close();
             return value;
@@ -100,12 +111,11 @@ namespace Laba_1_PEis
             {
                 value.Add(new Product_count {
                     Material_id=Convert.ToInt32(reader[0]),
-                    Sum = Convert.ToInt32(reader[1]),
-                    Count = Convert.ToInt32(reader[2]),
-                    Date = reader[3].ToString(),
-                    Day = Convert.ToInt32(reader[4]),
-                    Month = Convert.ToInt32(reader[5]),
-                    Year = Convert.ToInt32(reader[6]),
+                    Count = Convert.ToInt32(reader[1]),
+                    Date = reader[2].ToString(),
+                    Day = Convert.ToInt32(reader[3]),
+                    Month = Convert.ToInt32(reader[4]),
+                    Year = Convert.ToInt32(reader[5]),
 
                 });
             }
