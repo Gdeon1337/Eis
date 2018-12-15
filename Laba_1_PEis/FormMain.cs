@@ -65,7 +65,13 @@ namespace Laba_1_PEis
 
         private void отчёт1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new FormOtchets();
+            var form = new FormReport1();
+            form.ShowDialog();
+        }
+
+        private void отчёт2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new FormReport2();
             form.ShowDialog();
         }
     }

@@ -28,22 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.del = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
             this.redaction = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.сохранитьВЕксельToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(842, 34);
+            this.textBoxName.MaxLength = 32;
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(221, 22);
             this.textBoxName.TabIndex = 12;
-            this.textBoxName.MaxLength = 32;
             // 
             // label1
             // 
@@ -86,39 +90,55 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(654, 346);
             this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.AllowUserToAddRows = false; 
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сохранитьВЕксельToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(215, 56);
+            // 
+            // сохранитьВЕксельToolStripMenuItem
+            // 
+            this.сохранитьВЕксельToolStripMenuItem.Name = "сохранитьВЕксельToolStripMenuItem";
+            this.сохранитьВЕксельToolStripMenuItem.Size = new System.Drawing.Size(214, 24);
+            this.сохранитьВЕксельToolStripMenuItem.Text = "Сохранить в ексель";
+            this.сохранитьВЕксельToolStripMenuItem.Click += new System.EventHandler(this.сохранитьВЕксельToolStripMenuItem_Click);
             // 
             // FormCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1075, 404);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.del);
             this.Controls.Add(this.Add);
             this.Controls.Add(this.redaction);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormCustomer";
             this.Text = "Покупатели";
-            this.MaximizeBox = false;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Load += new System.EventHandler(this.FormCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
 
         }
 
@@ -130,5 +150,7 @@
         private System.Windows.Forms.Button Add;
         private System.Windows.Forms.Button redaction;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьВЕксельToolStripMenuItem;
     }
 }

@@ -37,17 +37,6 @@ namespace Laba_1_PEis
             sql_con.Close();
         }
 
-        public static ListOtchet list_load()
-        {
-            ListOtchet list = new ListOtchet
-            {
-                data = ClassSupport.selectValueOthet("Select Data from Transactions where Journal_id<>-1"),
-                number = ClassSupport.selectValueOthet("Select Subcount_credit from Transactions where Journal_id<>-1"),
-                summ = ClassSupport.selectValueOthet("Select Price from Transactions where Journal_id <> -1 AND Debit_count='62' AND Credit_count='91'")
-
-            };
-            return list;
-        }
 
         public static object selectValue( String selectCommand)
         {
@@ -122,6 +111,78 @@ namespace Laba_1_PEis
             connect.Close();
             return value;
         }
+
+
+        public static List<ListOtchet> selectValueReport1(String selectCommand)
+        {
+            SQLiteConnection connect = new
+           SQLiteConnection(ConnectionString);
+            connect.Open();
+            SQLiteCommand command = new SQLiteCommand(selectCommand, connect);
+            SQLiteDataReader reader = command.ExecuteReader();
+            List<ListOtchet> value = new List<ListOtchet>();
+            while (reader.Read())
+            {
+                value.Add(new ListOtchet
+                {
+                    data = reader[0].ToString(),
+                    number = reader[1].ToString(),
+                    summ = reader[2].ToString(),
+                    otg = "отгружено"
+                });
+            }
+            connect.Close();
+            return value;
+        }
+
+
+        public static List<Report2> selectValueReport2(String selectCommand)
+        {
+            SQLiteConnection connect = new
+           SQLiteConnection(ConnectionString);
+            connect.Open();
+            SQLiteCommand command = new SQLiteCommand(selectCommand, connect);
+            SQLiteDataReader reader = command.ExecuteReader();
+            List<Report2> value = new List<Report2>();
+            while (reader.Read())
+            {
+                value.Add(new Report2
+                {
+                    name_prod = reader[0].ToString(),
+                    data = reader[1].ToString(),
+                    number_zaiav = reader[2].ToString(),
+                    count = reader[3].ToString(),
+                    price1 = reader[4].ToString(),
+                    price2 = reader[5].ToString()
+                });
+            }
+            connect.Close();
+            return value;
+        }
+
+        public static List<ListOtchet> selectValueReport1_dop(String selectCommand)
+        {
+            SQLiteConnection connect = new
+           SQLiteConnection(ConnectionString);
+            connect.Open();
+            SQLiteCommand command = new SQLiteCommand(selectCommand, connect);
+            SQLiteDataReader reader = command.ExecuteReader();
+            List<ListOtchet> value = new List<ListOtchet>();
+            while (reader.Read())
+            {
+                value.Add(new ListOtchet
+                {
+                    number = reader[0].ToString(),
+                    summ = reader[1].ToString(),
+                    data = "",
+                    otg = "не отгружено"
+                    
+                });
+            }
+            connect.Close();
+            return value;
+        }
+
 
         public static Dictionary<int, int> selectValueList(String selectCommand)
         {

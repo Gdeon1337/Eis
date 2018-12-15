@@ -201,7 +201,33 @@ namespace Laba_1_PEis
             textBoxPriceZakyp.Text = priceZakyp;
         }
 
-       
+        private void сохранитьВЕксельToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.DataSource != null)
+            {
+                Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
+                Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
+                //Книга.
+                ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
+                //Таблица.
+                ExcelWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
+                ExcelApp.Cells[1, 1] = dataGridView1.Columns[0].Name;
+                ExcelApp.Cells[1, 2] = dataGridView1.Columns[1].Name;
+                ExcelApp.Cells[1, 3] = dataGridView1.Columns[2].Name;
+                ExcelApp.Cells[1, 4] = dataGridView1.Columns[3].Name;
+                for (int i = 1; i < dataGridView1.Rows.Count + 1; i++)
+                {
+                    for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                    {
+                        ExcelApp.Cells[i + 1, j + 1] = dataGridView1.Rows[i - 1].Cells[j].Value;
+                    }
+                }
+                //Вызываем нашу созданную эксельку.
+                ExcelApp.Visible = true;
+                ExcelApp.UserControl = true;
+            }
+        }
     }
 }
 

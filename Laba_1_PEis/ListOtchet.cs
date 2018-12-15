@@ -8,9 +8,10 @@ namespace Laba_1_PEis
 {
     public class ListOtchet
     {
-        public List<string> data { set; get; }
-        public List<string> number { set; get; }
-        public List<string> summ { set; get; }
-        public List<string> otg { set; get; }
+        public string data { set; get; }
+        public string number { set; get; }
+        public string summ { set; get; }
+        public string otg { set; get; }
+
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxProduct = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,7 +40,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxCustom = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.сохранитьВЕксельToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -146,11 +150,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сохранитьВЕксельToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(213, 56);
+            // 
+            // сохранитьВЕксельToolStripMenuItem
+            // 
+            this.сохранитьВЕксельToolStripMenuItem.Name = "сохранитьВЕксельToolStripMenuItem";
+            this.сохранитьВЕксельToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
+            this.сохранитьВЕксельToolStripMenuItem.Text = "сохранить в ексель";
+            this.сохранитьВЕксельToolStripMenuItem.Click += new System.EventHandler(this.сохранитьВЕксельToolStripMenuItem_Click);
+            // 
             // JournalEntries
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(986, 585);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBoxCustom);
             this.Controls.Add(this.label5);
@@ -168,6 +188,7 @@
             this.Text = "Журнал проводок";
             this.Load += new System.EventHandler(this.JournalEntries_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +206,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxCustom;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьВЕксельToolStripMenuItem;
     }
 }

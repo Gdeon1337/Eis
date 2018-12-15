@@ -130,6 +130,7 @@
             this.отчёт2ToolStripMenuItem.Name = "отчёт2ToolStripMenuItem";
             this.отчёт2ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.отчёт2ToolStripMenuItem.Text = "Отчёт2";
+            this.отчёт2ToolStripMenuItem.Click += new System.EventHandler(this.отчёт2ToolStripMenuItem_Click);
             // 
             // FormMain
             // 

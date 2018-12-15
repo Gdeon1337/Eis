@@ -40,7 +40,10 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.textBoxPriceZakyp = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.сохранитьВЕксельToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -155,11 +158,27 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Закупочная цена";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сохранитьВЕксельToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(213, 56);
+            // 
+            // сохранитьВЕксельToolStripMenuItem
+            // 
+            this.сохранитьВЕксельToolStripMenuItem.Name = "сохранитьВЕксельToolStripMenuItem";
+            this.сохранитьВЕксельToolStripMenuItem.Size = new System.Drawing.Size(212, 24);
+            this.сохранитьВЕксельToolStripMenuItem.Text = "сохранить в ексель";
+            this.сохранитьВЕксельToolStripMenuItem.Click += new System.EventHandler(this.сохранитьВЕксельToolStripMenuItem_Click);
+            // 
             // FormProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1074, 374);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.textBoxPriceZakyp);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxPrice);
@@ -176,6 +195,7 @@
             this.Text = "Товар";
             this.Load += new System.EventHandler(this.FormProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +214,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxPriceZakyp;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьВЕксельToolStripMenuItem;
     }
 }
